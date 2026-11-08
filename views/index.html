@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplomatique - Arretes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="entete">
+        <div class="entete-logo" aria-hidden="true">
+            <span class="logo-couche logo-arriere"></span>
+            <span class="logo-couche logo-devant">
+                <svg viewBox="0 0 64 64" role="img">
+                    <path d="M19 16h19l8 8v24a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M38 16v8h8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23 37l5 5 9-10" fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        </div>
+        <div>
+            <h1>Diplomatique</h1>
+            <p class="sous-titre">ARRETES x ADMINISTRATIFS x DIGITALISES</p>
+        </div>
+    </header>
+
+    <main class="conteneur">
+        <section class="bloc-filtres">
+            <form method="get" class="formulaire-filtres">
+                <label class="champ">
+                    <span>Rechercher un arrete</span>
+                    <input type="text" name="q" placeholder="Mot-cle, numero, commune, theme..." value="{{ filtres.q }}">
+                </label>
+
+                <label class="champ">
+                    <span>Prefecture</span>
+                    <select name="prefecture">
+                        <option value="">Toutes les prefectures</option>
+                        {% for prefecture in prefectures %}
+                            <option value="{{ prefecture.code }}" {% if filtres.prefecture == prefecture.code %}selected{% endif %}>
+                                {{ prefecture.nom }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label class="champ">
+                    <span>Annee</span>
+                    <select name="annee">
+                        <option value="">Toutes les annees</option>
+                        {% for annee_item in annees_disponibles %}
+                            <option value="{{ annee_item }}" {% if filtres.annee == annee_item %}selected{% endif %}>
+                                {{ annee_item }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label class="champ">
+                    <span>Date de publication</span>
+                    <select name="date">
+                        <option value="">Toutes les dates disponibles</option>
+                        {% for date_item in dates_disponibles %}
+                            <option value="{{ date_item }}" {% if filtres.date == date_item %}selected{% endif %}>
+                                {{ date_item }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <div class="ligne-boutons">
+                    <button type="submit" class="bouton bouton-principal">Filtrer</button>
+                    <a href="{{ url_for('arretes.page_accueil') }}" class="bouton bouton-secondaire">Reinitialiser</a>
+                </div>
+            </form>
+        </section>
+
+        <section class="resultats">
+            <div class="barre-resultats">
+                <strong>{{ nb_resultats }}</strong> resultat(s)
+            </div>
+
+            <div class="liste-cartes">
+                {% for arrete in arretes %}
+                    <a href="{{ url_for('arretes.detail_arrete', arrete_id=arrete.id) }}" class="carte-arrete">
+                        <h2>{{ arrete.titre }}</h2>
+                        <div class="meta-ligne">
+                            <span><b>Numero:</b> {{ arrete.numero_arrete }}</span>
+                            <span><b>Date:</b> {{ arrete.date_publication or "Non renseignee" }}</span>
+                            <span><b>Prefecture:</b> {{ arrete.prefecture_affiche }}</span>
+                        </div>
+                        {% if arrete.extrait %}
+                            <p class="extrait-recherche">{{ arrete.extrait | safe }}</p>
+                        {% endif %}
+                    </a>
+                {% else %}
+                    <div class="aucun-resultat">
+                        <p><b>Aucun arrete trouve pour cette recherche.</b></p>
+                        <p>Conseils:</p>
+                        <p>- verifiez l'orthographe</p>
+                        <p>- essayez des mots plus simples</p>
+                        <p>- retirez un ou plusieurs filtres</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

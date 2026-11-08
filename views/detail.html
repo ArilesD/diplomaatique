@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail arrêté - Diplomatique</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="conteneur conteneur-detail">
+        <a href="{{ url_for('arretes.page_accueil') }}" class="lien-retour">← Retour à la liste</a>
+
+        <section class="bloc-detail-principal">
+            <h1>{{ detail.arrete.titre }}</h1>
+            <div class="grille-detail">
+                <article class="bloc-info">
+                    <h3>Numéro</h3>
+                    <p>{{ detail.arrete.numero_arrete }}</p>
+                </article>
+                <article class="bloc-info">
+                    <h3>Date</h3>
+                    <p>{{ detail.arrete.date_publication or "Non renseignée" }}</p>
+                </article>
+                <article class="bloc-info">
+                    <h3>Préfecture</h3>
+                    <p>{{ detail.arrete.prefecture_affiche or "Non renseignée" }}</p>
+                </article>
+                <article class="bloc-info">
+                    <h3>Pages</h3>
+                    <p>{{ detail.arrete.page_debut or "?" }} à {{ detail.arrete.page_fin or "?" }}</p>
+                </article>
+                <article class="bloc-info">
+                    <h3>Numéro RAA</h3>
+                    <p>{{ detail.arrete.numero_raa or "Non renseigné" }}</p>
+                </article>
+                <article class="bloc-info">
+                    <h3>Source PDF</h3>
+                    {% if detail.arrete.source_pdf %}
+                        <p><a href="{{ detail.arrete.source_pdf }}" target="_blank">{{ detail.arrete.source_pdf }}</a></p>
+                    {% else %}
+                        <p>Non renseignée</p>
+                    {% endif %}
+                </article>
+            </div>
+        </section>
+
+        <section class="bloc-detail">
+            <h2>Autorités et services</h2>
+            <div class="grille-detail">
+                <article class="bloc-info">
+                    <h3>Autorité émettrice</h3>
+                    <p><b>Nom:</b> {{ detail.autorite_emettrice.nom or "-" }}</p>
+                    <p><b>Fonction:</b> {{ detail.autorite_emettrice.fonction or "-" }}</p>
+                    <p><b>Service:</b> {{ detail.autorite_emettrice.service or "-" }}</p>
+                    <p><b>Administration:</b> {{ detail.autorite_emettrice.administration or "-" }}</p>
+                </article>
+
+                <article class="bloc-info">
+                    <h3>Autorité décisionnaire</h3>
+                    <p><b>Nom:</b> {{ detail.autorite_decisionnaire.nom or "-" }}</p>
+                    <p><b>Fonction:</b> {{ detail.autorite_decisionnaire.fonction or "-" }}</p>
+                    <p><b>Institution:</b> {{ detail.autorite_decisionnaire.institution or "-" }}</p>
+                </article>
+
+                <article class="bloc-info">
+                    <h3>Signataire</h3>
+                    <p><b>Nom:</b> {{ detail.signataire.nom or "-" }}</p>
+                    <p><b>Fonction:</b> {{ detail.signataire.fonction or "-" }}</p>
+                    <p><b>Date signature:</b> {{ detail.signataire.date_signature or "-" }}</p>
+                    <p><b>Lieu signature:</b> {{ detail.signataire.lieu_signature or "-" }}</p>
+                </article>
+
+                <article class="bloc-info">
+                    <h3>Services</h3>
+                    <p><b>Service:</b> {{ detail.services.service or "-" }}</p>
+                    <p><b>Direction/Bureau/Cabinet:</b></p>
+                    <ul class="liste-simple">
+                        {% for element in detail.services.direction_bureau_cabinet %}
+                            <li>{{ element }}</li>
+                        {% else %}
+                            <li>Aucun élément</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="bloc-detail">
+            <h2>Articles</h2>
+            <div class="liste-detail">
+                {% for article in detail.articles %}
+                    <article class="ligne-detail">
+                        <h3>{{ article.numero_article }}</h3>
+                        <p>{{ article.contenu }}</p>
+                    </article>
+                {% else %}
+                    <p class="texte-vide">Aucun article.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="bloc-detail">
+            <h2>Visas</h2>
+            <div class="liste-detail">
+                {% for visa in detail.visas %}
+                    <article class="ligne-detail">
+                        <h3>Visa {{ visa.ordre_visa }}</h3>
+                        <p>{{ visa.texte }}</p>
+                    </article>
+                {% else %}
+                    <p class="texte-vide">Aucun visa.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="bloc-detail">
+            <h2>Considérants</h2>
+            <div class="liste-detail">
+                {% for considerant in detail.considerants %}
+                    <article class="ligne-detail">
+                        <h3>Considérant {{ considerant.ordre_considerant }}</h3>
+                        <p>{{ considerant.texte }}</p>
+                    </article>
+                {% else %}
+                    <p class="texte-vide">Aucun considérant.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="bloc-detail">
+            <h2>Annexes</h2>
+            <div class="liste-detail">
+                {% for annexe in detail.annexes %}
+                    <article class="ligne-detail">
+                        <h3>{{ annexe.titre or ("Annexe " ~ annexe.ordre_annexe) }}</h3>
+                        <p>{{ annexe.contenu }}</p>
+                    </article>
+                {% else %}
+                    <p class="texte-vide">Aucune annexe.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="bloc-detail">
+            <h2>Voies de recours</h2>
+            <div class="grille-detail">
+                <article class="bloc-info">
+                    <h3>Voies de recours</h3>
+                    <ul class="liste-simple">
+                        {% for voie in detail.voies_recours.voies_recours %}
+                            <li>{{ voie }}</li>
+                        {% else %}
+                            <li>Aucune voie renseignée.</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                <article class="bloc-info">
+                    <h3>Délais de recours</h3>
+                    <ul class="liste-simple">
+                        {% for delai in detail.voies_recours.delai_recours %}
+                            <li>{{ delai }}</li>
+                        {% else %}
+                            <li>Aucun délai renseigné.</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                <article class="bloc-info">
+                    <h3>Juridiction compétente</h3>
+                    <p>{{ detail.voies_recours.juridiction_competente or "Non renseignée" }}</p>
+                </article>
+                <article class="bloc-info">
+                    <h3>Texte explicatif</h3>
+                    <p>{{ detail.voies_recours.texte_explicatif_recours or "Non renseigné" }}</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

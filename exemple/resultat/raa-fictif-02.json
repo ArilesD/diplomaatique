@@ -1,0 +1,58 @@
+{
+  "id": "raa-fictif-02",
+  "metadata_raa": {
+    "source_pdf": "",
+    "numero_raa": "93-2026-901",
+    "date_publication": "2026-01-15",
+    "prefecture_id": "93",
+    "prefecture_name": "Seine-Saint-Denis"
+  },
+  "numero_arrete": "93-2026-01-15-90002",
+  "titre": "Arrêté fictif relatif à la réouverture de la bibliothèque des Tilleuls",
+  "page_debut": null,
+  "page_fin": null,
+  "nb_pages": null,
+  "autorite_emettrice": {
+    "nom": "",
+    "fonction": "",
+    "service": "",
+    "administration": "",
+    "ligne": ""
+  },
+  "autorite_decisionnaire": {
+    "fonction": "",
+    "nom": "",
+    "institution": "",
+    "ligne": ""
+  },
+  "services": {
+    "service": "",
+    "direction_bureau_cabinet": []
+  },
+  "visas": [
+    "Vu le règlement fictif de la bibliothèque des Tilleuls ;"
+  ],
+  "considerants": [
+    "CONSIDERANT la fin des travaux fictifs ; ARRÊTE :"
+  ],
+  "articles": [
+    {
+      "numero": "ARTICLE 1ER",
+      "contenu": "La bibliothèque des Tilleuls ouvre au public le 20 janvier 2026."
+    }
+  ],
+  "signataire": {
+    "nom": "",
+    "fonction": "Pour le préfet",
+    "date_signature": "15 janvier 2026",
+    "lieu_signature": "Bobigny",
+    "ligne": "Pour le préfet"
+  },
+  "annexes": [],
+  "voies_recours": {
+    "voiesRecours": [],
+    "delaiRecours": [],
+    "juridictionCompetente": null,
+    "texteExplicatifRecours": null
+  }
+}
