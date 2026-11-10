@@ -13,9 +13,20 @@ Projet universitaire réalisé en équipe. Nous avons partagé les tâches entre
 
 ## Essayer avec deux arrêtés fictifs
 
-L’[exemple de recueil](exemple/raa-fictif.txt) contient un texte sur l’accès à un jardin et un autre sur la réouverture d’une bibliothèque. Le traitement produit deux fichiers séparés, avec respectivement deux articles et un article. [Résultats JSON](exemple/resultat/)
+Le [texte du recueil fictif](exemple/raa-fictif.txt) simule la sortie d’un OCR. Le programme le lit avec les [métadonnées du recueil](exemple/raa-fictif.json), puis sépare les deux arrêtés.
 
-Depuis la racine du dépôt, utilise Python 3.12 pour générer les résultats et lancer le test automatisé. L’extraction et le test utilisent la bibliothèque standard Python.
+| Arrêté repéré dans le texte | Fichier généré | Articles extraits | Mot à rechercher |
+| --- | --- | --- | --- |
+| `93-2026-01-15-90001` - Accès au jardin des Érables | [raa-fictif-01.json](exemple/resultat/raa-fictif-01.json) | 2 | `jardin` |
+| `93-2026-01-15-90002` - Réouverture de la bibliothèque des Tilleuls | [raa-fictif-02.json](exemple/resultat/raa-fictif-02.json) | 1 | `bibliothèque` |
+
+La recherche « jardin » renvoie l’arrêté `93-2026-01-15-90001`. Sa fiche affiche les deux articles, dont celui qui suspend l’accès au jardin le 18 janvier 2026 dans ce scénario fictif.
+
+![Recherche « jardin » dans DiplomAAtique avec un résultat sur l’exemple fictif](docs/recherche-jardin.jpg)
+
+### Reproduire l’exemple
+
+Depuis la racine du dépôt, utilise Python 3.12 ou 3.14 pour générer les résultats et lancer le test automatisé. L’extraction et le test utilisent la bibliothèque standard Python.
 
 ```bash
 python diplomaatique.py exemple/raa-fictif.txt exemple/raa-fictif.json --output output
@@ -29,7 +40,7 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-Ouvre [DiplomAAtique sur ton ordinateur](http://127.0.0.1:5000), puis cherche **jardin**. L’application crée sa base SQLite locale à partir des fichiers JSON générés dans `output/`.
+Ouvre [DiplomAAtique sur ton ordinateur](http://127.0.0.1:5000), cherche **jardin**, puis ouvre la fiche du résultat. L’application alimente sa base SQLite locale à partir des fichiers JSON générés dans `output/`.
 
 ## Fichiers principaux
 
@@ -40,4 +51,4 @@ Ouvre [DiplomAAtique sur ton ordinateur](http://127.0.0.1:5000), puis cherche **
 | `extractors/` | Contient les règles d’extraction des champs. |
 | `app.py`, `controllers/`, `models/` et `views/` | Relient la recherche SQLite à l’interface. |
 
-La qualité des résultats dépend de la qualité du texte OCR et de la structure du recueil. L’exemple montre le comportement sur un format contrôlé.
+La qualité des résultats dépend du texte OCR et de la structure du recueil. Certains champs demandent une relecture. Dans l’arrêté fictif du jardin, par exemple, la règle de détection de l’autorité émettrice reprend une phrase de l’article 2 qui mentionne un service.
