@@ -1,5 +1,17 @@
 # DiplomAAtique - Extraction d’arrêtés administratifs
 
+## Télécharger et lancer
+
+1. [Télécharge le ZIP complet](https://github.com/ArilesD/diplomaatique/archive/refs/heads/main.zip).
+2. Dans l’Explorateur Windows, fais **Extraire tout**, puis ouvre le dossier extrait.
+3. Installe [Python 3.14](https://www.python.org/downloads/) si besoin, en cochant **Add python.exe to PATH**. Double-clique ensuite sur **LANCER.cmd**.
+
+Le lancement extrait les deux arrêtés du recueil fictif fourni, prépare la recherche SQLite et ouvre le site. Recherche **jardin** puis ouvre le résultat pour consulter ses articles.
+
+Garde la fenêtre de lancement ouverte pendant l’utilisation. Appuie sur **Entrée** dans cette fenêtre pour arrêter le projet. La première préparation des applications Python installe les bibliothèques depuis Internet. Les ouvertures suivantes réutilisent l’installation du dossier.
+
+Sous macOS ou Linux avec Python 3.12 à 3.14, ouvre un terminal dans le dossier extrait et exécute **python3 lancer.py**.
+
 DiplomAAtique découpe le texte d’un recueil d’actes administratifs en arrêtés individuels, puis produit un fichier JSON par arrêté. Une interface Flask permet de rechercher les actes et de consulter leurs articles.
 
 Projet universitaire réalisé en équipe. Nous avons partagé les tâches entre le traitement du texte, la structuration des données et l’application.
