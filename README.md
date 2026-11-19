@@ -1,5 +1,17 @@
 # DiplomAAtique - Extraction d’arrêtés administratifs
 
+DiplomAAtique découpe le texte d’un recueil d’actes administratifs en arrêtés individuels, puis produit un fichier JSON par arrêté. Une interface Flask permet de rechercher les actes et de consulter leurs articles.
+
+Projet universitaire réalisé en équipe. Nous avons partagé les tâches entre le traitement du texte, la structuration des données et l’application.
+
+## Aperçu du projet
+
+![Enregistrement de la base universitaire : recherche « Vidourle », filtre Gard et consultation d’une fiche. Le dépôt téléchargeable fournit deux arrêtés fictifs reproductibles ; recherche « jardin ».](docs/presentation.gif)
+
+Enregistrement de la base universitaire : recherche « Vidourle », filtre Gard et consultation d’une fiche. Le dépôt téléchargeable fournit deux arrêtés fictifs reproductibles ; recherche « jardin ».
+
+[Voir la vidéo en grand format](docs/presentation.mp4) · [Mon parcours et mes autres projets](https://github.com/ArilesD)
+
 ## Télécharger et lancer
 
 1. [Télécharge le ZIP complet](https://github.com/ArilesD/diplomaatique/archive/refs/heads/main.zip).
@@ -12,9 +24,6 @@ Garde la fenêtre de lancement ouverte pendant l’utilisation. Appuie sur **Ent
 
 Sous macOS ou Linux avec Python 3.12 à 3.14, ouvre un terminal dans le dossier extrait et exécute **python3 lancer.py**.
 
-DiplomAAtique découpe le texte d’un recueil d’actes administratifs en arrêtés individuels, puis produit un fichier JSON par arrêté. Une interface Flask permet de rechercher les actes et de consulter leurs articles.
-
-Projet universitaire réalisé en équipe. Nous avons partagé les tâches entre le traitement du texte, la structuration des données et l’application.
 
 ## Du recueil à la recherche
 
