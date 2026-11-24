@@ -47,14 +47,14 @@ La recherche « jardin » renvoie l’arrêté `93-2026-01-15-90001`. Sa fiche a
 
 Depuis la racine du dépôt, utilise Python 3.12 ou 3.14 pour générer les résultats et lancer le test automatisé. L’extraction et le test utilisent la bibliothèque standard Python.
 
-```bash
+```powershell
 python diplomaatique.py exemple/raa-fictif.txt exemple/raa-fictif.json --output output
 python -m unittest discover -s tests
 ```
 
 Pour consulter le résultat dans l’interface locale, installe Flask dans ton environnement Python puis lance l’application.
 
-```bash
+```powershell
 python -m pip install -r requirements.txt
 python app.py
 ```
