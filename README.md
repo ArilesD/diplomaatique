@@ -10,7 +10,7 @@ Projet universitaire réalisé en équipe. Nous avons partagé les tâches entre
 
 Enregistrement de la base universitaire : recherche « Vidourle », filtre Gard et consultation d’une fiche. Le dépôt téléchargeable fournit deux arrêtés fictifs reproductibles ; recherche « jardin ».
 
-[Voir la vidéo en grand format](docs/presentation.mp4) · [Mon parcours et mes autres projets](https://github.com/ArilesD)
+[Voir la capture en grand format](docs/apercu.png) · [Voir la vidéo en grand format](docs/presentation.mp4) · [Mon parcours et mes autres projets](https://github.com/ArilesD)
 
 ## Télécharger et lancer
 
