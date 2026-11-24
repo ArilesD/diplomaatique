@@ -43,30 +43,3 @@ La qualité dépend du texte OCR et de la structure du recueil. Certains champs 
 | `extractors/` | Règles d’extraction des informations. |
 | `app.py`, `controllers/`, `models/` et `views/` | Recherche et interface web. |
 | `exemple/` et `tests/` | Recueil fictif, résultats attendus et test automatisé. |
-
-<details>
-<summary>Reproduire l’exemple depuis le code</summary>
-
-### Reproduire l’exemple
-
-Depuis la racine du dépôt, utilise Python 3.12 ou 3.14 pour générer les résultats et lancer le test automatisé. L’extraction et le test utilisent la bibliothèque standard Python.
-
-```powershell
-python diplomaatique.py exemple/raa-fictif.txt exemple/raa-fictif.json --output output
-python -m unittest discover -s tests
-```
-
-Pour consulter le résultat dans l’interface locale, installe Flask dans ton environnement Python puis lance l’application.
-
-```powershell
-python -m pip install -r requirements.txt
-python app.py
-```
-
-Ouvre [DiplomAAtique sur ton ordinateur](http://127.0.0.1:5000), cherche **jardin**, puis ouvre la fiche du résultat. L’application alimente sa base SQLite locale à partir des fichiers JSON générés dans `output/`.
-
-[Texte du recueil fictif](exemple/raa-fictif.txt) · [Métadonnées du recueil](exemple/raa-fictif.json) · [Premier résultat attendu](exemple/resultat/raa-fictif-01.json) · [Second résultat attendu](exemple/resultat/raa-fictif-02.json)
-
-La qualité des résultats dépend du texte OCR et de la structure du recueil. Certains champs demandent une relecture. Dans l’arrêté fictif du jardin, par exemple, la règle de détection de l’autorité émettrice reprend une phrase de l’article 2 qui mentionne un service.
-
-</details>
