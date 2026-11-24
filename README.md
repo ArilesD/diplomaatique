@@ -15,14 +15,12 @@ Enregistrement de la base universitaire : recherche « Vidourle », filtre Gard 
 ## Télécharger et lancer
 
 1. [Télécharge le ZIP complet](https://github.com/ArilesD/diplomaatique/archive/refs/heads/main.zip).
-2. Dans l’Explorateur Windows, fais **Extraire tout**, puis ouvre le dossier extrait.
+2. Dans l’Explorateur de fichiers, fais **Extraire tout**, puis ouvre le dossier extrait.
 3. Installe [Python 3.14](https://www.python.org/downloads/) si besoin, en cochant **Add python.exe to PATH**. Double-clique ensuite sur **LANCER.cmd**.
 
 Le lancement extrait les deux arrêtés du recueil fictif fourni, prépare la recherche SQLite et ouvre le site. Recherche **jardin** puis ouvre le résultat pour consulter ses articles.
 
 Garde la fenêtre de lancement ouverte pendant l’utilisation. Appuie sur **Entrée** dans cette fenêtre pour arrêter le projet. La première préparation des applications Python installe les bibliothèques depuis Internet. Les ouvertures suivantes réutilisent l’installation du dossier.
-
-Sous macOS ou Linux avec Python 3.12 à 3.14, ouvre un terminal dans le dossier extrait et exécute **python3 lancer.py**.
 
 
 ## Du recueil à la recherche
