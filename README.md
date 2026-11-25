@@ -2,7 +2,12 @@
 
 Projet universitaire réalisé en équipe, avec des tâches partagées entre traitement du texte, structuration des données et application web.
 
-DiplomAAtique sépare les arrêtés d’un recueil administratif, extrait leurs informations en JSON et permet de les rechercher dans une interface web.
+DiplomAAtique aide à retrouver un arrêté dans les recueils administratifs d’une préfecture. Le programme sépare les arrêtés et organise leurs informations pour les rendre consultables dans une interface web.
+
+L’application permet de :
+- Rechercher un arrêté par mots-clés dans les titres et les textes.
+- Filtrer les résultats par préfecture, année ou date de publication.
+- Ouvrir une fiche pour consulter les articles et les informations de l’arrêté.
 
 **Outils :** Python, expressions régulières, SQLite et Flask.
 
