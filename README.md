@@ -31,8 +31,6 @@ Le lancement prépare les deux exemples et la recherche SQLite. Recherche **jard
 3. Il extrait les informations et les articles en JSON.
 4. L’application importe les résultats dans SQLite pour permettre la recherche.
 
-La qualité dépend du texte OCR et de la structure du recueil. Certains champs demandent une relecture.
-
 ## Comprendre les fichiers
 
 | Fichier ou dossier | Rôle |
