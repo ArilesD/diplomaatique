@@ -10,7 +10,7 @@ DiplomAAtique sépare les arrêtés d’un recueil administratif, extrait leurs 
 
 ![Recherche et consultation d’un arrêté dans la base universitaire de DiplomAAtique.](docs/presentation.gif)
 
-La vidéo montre la base universitaire d’origine. Le dépôt fournit **deux arrêtés fictifs** pour reproduire l’extraction et la recherche.
+L’application utilise la base universitaire d’origine : **19 595 arrêtés et 74 640 articles** extraits des recueils administratifs, également visibles dans la vidéo.
 
 [Image en grand format](docs/apercu.png) · [Voir la vidéo](docs/presentation.mp4)
 
@@ -22,7 +22,7 @@ La vidéo montre la base universitaire d’origine. Le dépôt fournit **deux ar
 
 Le premier lancement nécessite Internet pour installer les bibliothèques. Garde la fenêtre de lancement ouverte pendant l’utilisation et appuie sur **Entrée** dans cette fenêtre pour arrêter le projet.
 
-Le lancement prépare les deux exemples et la recherche SQLite. Recherche **jardin**, puis ouvre le résultat pour consulter ses articles.
+Le lancement télécharge et prépare automatiquement la base originale. Recherche par exemple **vidéoprotection**, puis ouvre un résultat pour consulter ses articles. Les ouvertures suivantes réutilisent la base installée.
 
 ## Comment fonctionne le projet
 
@@ -35,9 +35,10 @@ Le lancement prépare les deux exemples et la recherche SQLite. Recherche **jard
 
 | Fichier ou dossier | Rôle |
 | --- | --- |
-| `LANCER.cmd` et `lancer.py` | Préparent les exemples et démarrent l’application. |
+| `LANCER.cmd` et `lancer.py` | Préparent la base et démarrent l’application. |
+| `donnees.py` et `donnees.json` | Téléchargement et provenance de la base originale. |
 | `diplomaatique.py` | Lance le traitement du recueil. |
 | `cleaner.py` et `arrete_separate.py` | Nettoient le texte et séparent les arrêtés. |
 | `extractors/` | Règles d’extraction des informations. |
 | `app.py`, `controllers/`, `models/` et `views/` | Recherche et interface web. |
-| `exemple/` et `tests/` | Recueil fictif, résultats attendus et test automatisé. |
+| `exemple/` et `tests/` | Recueil administratif original et vérification de l’extraction. |

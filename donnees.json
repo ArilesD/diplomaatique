@@ -1,0 +1,9 @@
+{
+  "fichier": "arretes-originaux.db.gz",
+  "url": "https://github.com/ArilesD/diplomaatique/releases/download/donnees-originales-v1/arretes-originaux.db.gz",
+  "sha256": "55ed02d69c7c722baeb44abd66d25bd96e30a69cd69a56727f8424bcf033e52e",
+  "octets": 95218249,
+  "provenance": "Base SQLite du projet universitaire : 19 595 arrêtés et 74 640 articles extraits des recueils administratifs.",
+  "base_sha256": "d314bc95c7d639bae4c4dac7305c68cfc13089ae28f16b101379a4cd8fd96c3d",
+  "arretes": 19595
+}

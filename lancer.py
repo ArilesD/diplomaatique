@@ -86,15 +86,17 @@ def reuse():
 
 
 def verify():
-    assert b"/arrete/" in read_page("/?q=jardin", 15)
+    import sqlite3
+    with sqlite3.connect(ROOT / "Base_donnees/arretes.db") as connection:
+        assert connection.execute("SELECT COUNT(*) FROM arretes").fetchone()[0] == 19595
+    assert b"/arrete/" in read_page("/?q=videoprotection", 60)
     print(f"{NAME} : vérification réussie.")
 
 
 def serve():
     python = Path(sys.executable)
-    if not (ROOT / "Base_donnees/arretes.db").is_file():
-        run([str(python), "diplomaatique.py", "exemple/raa-fictif.txt",
-             "exemple/raa-fictif.json", "--output", "output"])
+    from donnees import preparer_base
+    preparer_base()
     address = f"http://127.0.0.1:{PORT}"
     environment = {**os.environ, "PYTHONUTF8": "1", "PYTHONDONTWRITEBYTECODE": "1"}
     arguments = ["-m", "flask", "--app", ENTRY, "run",
