@@ -12,8 +12,6 @@ DiplomAAtique sépare les arrêtés d’un recueil administratif, extrait leurs 
 
 L’application utilise la base universitaire d’origine : **19 595 arrêtés et 74 640 articles** extraits des recueils administratifs, également visibles dans la vidéo.
 
-[Image en grand format](docs/apercu.png) · [Voir la vidéo](docs/presentation.mp4)
-
 ## Télécharger et lancer
 
 1. Installe [Python 3.14](https://www.python.org/downloads/) si besoin, en cochant **Add python.exe to PATH**.
